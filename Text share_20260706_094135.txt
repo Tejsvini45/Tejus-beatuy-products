@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tejus Beauty Products</title>
+    <style>
+        /* Modern, Clean Beauty Aesthetic Styles */
+        :root {
+            --primary-pink: #ffb6c1;
+            --dark-berry: #4a1525;
+            --soft-cream: #fffaf0;
+            --charcoal: #2b2b2b;
+            --gold-accent: #d4af37;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--soft-cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        /* Promo Banner */
+        .promo-banner {
+            background-color: var(--dark-berry);
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: var(--dark-berry);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-pink);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.5)), url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--dark-berry);
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            max-width: 600px;
+        }
+
+        .cta-btn {
+            background-color: var(--dark-berry);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #6b2237;
+        }
+
+        /* Section Formatting */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--dark-berry);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-pink);
+            margin: 10px auto 0;
+        }
+
+        /* About Section */
+        #about {
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        #about p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--primary-pink);
+        }
+
+        .product-card h3 {
+            margin-bottom: 10px;
+            color: var(--dark-berry);
+            text-transform: capitalize;
+        }
+
+        .price-tag {
+            margin-bottom: 15px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #888;
+            margin-right: 10px;
+        }
+
+        .discount-price {
+            font-weight: bold;
+            color: var(--gold-accent);
+            font-size: 1.2rem;
+        }
+
+        .buy-btn {
+            background-color: transparent;
+            border: 2px solid var(--dark-berry);
+            color: var(--dark-berry);
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .buy-btn:hover {
+            background-color: var(--dark-berry);
+            color: white;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #ffffff;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            background-color: var(--dark-berry);
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #6b2237;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-berry);
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+        ✨ GRAND OPENING CELEBRATION: GET 50% OFF EVERY PRODUCT TODAY! ✨
+    </div>
+
+    <!-- Navigation Header -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">TEJUS BEAUTY</a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Define Your Elegance</h1>
+        <p>Discover high-quality, cruelty-free cosmetics crafted to highlight your natural radiance. Explore our collection at half the price for a limited time.</p>
+        <a href="#products" class="cta-btn">Shop The 50% Off Sale</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <h2 class="section-title">About Tejus Beauty</h2>
+        <p>At Tejus Beauty Products, we believe that makeup should empower and inspire. Our collection is formulated with premium, skin-loving ingredients designed to deliver flawless results for every skin type and tone. Enjoy an exclusive 50% discount across our entire launch lineup!</p>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="container">
+        <h2 class="section-title">Our Premium Collection</h2>
+        <div class="products-grid">
+            
+            <!-- 1. Lipstick -->
+            <div class="product-card">
+                <div class="product-icon">💄</div>
+                <h3>Lipstick</h3>
+                <p>Rich, velvety color that lasts all day without drying your lips.</p>
+                <div class="price-tag">
+                    <span class="original-price">$30.00</span>
+                    <span class="discount-price">$15.00</span>
+                </div>
+                <button class="buy-btn">Add to Cart</button>
+            </div>
+
+            <!-- 2. Lipbalm -->
+            <div class="product-card">
+                <div class="product-icon">💋</div>
+                <h3>Lipbalm</h3>
+                <p>Deep hydration infused with subtle, natural tints and essential oils.</p>
+                <div class="price-tag">
+                    <span class="original-price">$16.00</span>
+                    <span class="discount-price">$8.00</span>
+                </div>
+                <button class="buy-btn">Add to Cart</button>
+            </div>
+
+            <!-- 3. Foundation -->
+            <div class="product-card">
+                <div class="product-icon">🧴</div>
+                <h3>Foundation</h3>
+                <p>Weightless, buildable coverage with a natural, skin-like finish.</p>
+                <div class="price-tag">
+                    <span class="original-price">$44.00</span>
+                    <span class="discount-price">$22.00</span>
+                </div>
+                <button class="buy-btn">Add to Cart</button>
+            </div>
+
+            <!-- 4. Blush -->
+            <div class="product-card">
+                <div class="product-icon">🌸</div>
+                <h3>Blush</h3>
+                <p>A radiant pop of blendable color to brighten up your cheeks.</p>
+                <div class="price-tag">
+                    <span class="original-price">$28.00</span>
+                    <span class="discount-price">$14.00</span>
+                </div>
+                <button class="buy-btn">Add to Cart</button>
+            </div>
+
+            <!-- 5. Primer -->
+            <div class="product-card">
+                <div class="product-icon">✨</div>
+                <h3>Primer</h3>
+                <p>Blurs imperfections and extends your makeup wear all day long.</p>
+                <div class="price-tag">
+                    <span class="original-price">$36.00</span>
+                    <span class="discount-price">$18.00</span>
+                </div>
+                <button class="buy-btn">Add to Cart</button>
+            </div>
+
+            <!-- 6. Eyeshadow -->
+            <div class="product-card">
+                <div class="product-icon">🎨</div>
+                <h3>Eyeshadow</h3>
+                <p>Highly pigmented palettes featuring stunning matte and shimmer shades.</p>
+                <div class="price-tag">
+                    <span class="original-price">$48.00</span>
+                    <span class="discount-price">$24.00</span>
+                </div>
+                <button class="buy-btn">Add to Cart</button>
+            </div>
+
+            <!-- 7. Concealer -->
+            <div class="product-card">
+                <div class="product-icon">👁️</div>
+                <h3>Concealer</h3>
+                <p>Creamy, full-coverage formula that effortlessly hides dark circles.</p>
+                <div class="price-tag">
+                    <span class="original-price">$26.00</span>
+                    <span class="discount-price">$13.00</span>
+                </div>
+                <button class="buy-btn">Add to Cart</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <h2 class="section-title">Contact Us</h2>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for reaching out to Tejus Beauty! We will contact you soon.');">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email Address" required>
+            <textarea rows="5" placeholder="How can we help you?" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Tejus Beauty Products. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
